@@ -1,0 +1,184 @@
+.box_header_movie_tv_view {
+    width: 100%;
+    height: 100dvh;
+    position: relative;
+
+    .card_backdrop {
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5);
+        }
+    }
+
+    .card_poster_info {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 100px;
+        right: 100px;
+        transform: translate(0%, -50%);
+        gap: 40px;
+        z-index: 2000;
+
+        .poster {}
+
+        .info {
+            display: flex;
+            align-items: end;
+
+            h2 {
+                font-family: "Saira";
+                color: #fff;
+                font-size: 40px;
+                font-weight: 700;
+            }
+
+            .category {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 10px;
+
+                span {
+                    padding: 7px 15px;
+                    font-family: "Saira";
+                    color: #fff;
+                    font-size: 14px;
+                    font-weight: 400;
+                    border: 1px solid #fff;
+                    border-radius: 20px;
+                }
+            }
+
+            .star_vote_card {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+
+            }
+
+            .star_vote_card :first-child {
+                color: var(--star-color);
+                margin-right: 5px;
+            }
+
+            .star_vote_card :nth-child(2) {
+                color: #fff;
+            }
+
+            p {
+                font-family: "Saira";
+                color: #fff;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .date_year {
+                font-family: "Saira";
+                color: #fff;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.shodow_bg {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    background: #03000F;
+    background: linear-gradient(8deg, rgba(3, 0, 15, 1) 15%, rgba(2, 15, 7, 0) 64%, rgba(43, 8, 8, 0) 100%);
+}
+
+.nav-link {
+    color: #fff !important ;
+}
+
+.active{
+    color: #0e0e0e !important;
+}
+
+.tab_nav {
+    width: 100%;
+    padding: 0px 50px;
+    margin: 50px 0px;
+
+    .box_episodes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 30px;
+
+        .episode_card {
+            /* border: 1px solid #fff;  */
+            height: 250px;
+            cursor: pointer;
+
+            .episode_poster {
+                width: 100%;
+                height: calc(100% - 50px);
+                border-radius: 7px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .episode_fooder {
+                color: #fff;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .details_box {
+        width: 100%;
+
+        .detail_card {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 20px;
+
+            strong {
+                color: #d6d6d6;
+            }
+
+            p {
+                color: #fff;
+                margin: 0px;
+            }
+        }
+    }
+}
+
+.box_video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px;
+}
+
+.serie_view {
+    width: 100%;
+    margin: 80px 0px;
+    padding: 0px 50px;
+}
+
+.similar_box {
+    padding: 30px;
+    margin-bottom: 50px;
+}

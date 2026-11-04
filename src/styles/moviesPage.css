@@ -1,0 +1,12 @@
+
+
+.movies_page_content{
+    margin: 5rem 40px;
+}
+
+.pagination_box{
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
