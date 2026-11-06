@@ -63,7 +63,7 @@ export function ApiRequestProvider({ children }) {
             setLoading(true)
             const req = await fetch(`${movieUrl}/trending/all/day?language=en-US`, options_header)
             const res = await req.json()
-            setTrending(res?.results.slice(0, 6))
+            setTrending(res?.results?.slice(0, 6))
             setLoading(false)
         } catch (error) {
             console.error(error)
@@ -112,7 +112,7 @@ export function ApiRequestProvider({ children }) {
             // setLoadingProfile(true)
             const req = await fetch(`${movieUrl}/${media_type}/${id}/recommendations?language=es-ES`, options_header)
             const res = await req.json()
-            setSimilarMoviesSeries(res?.results.slice(0, 10))
+            setSimilarMoviesSeries(res?.results?.slice(0, 10))
             // setLoadingProfile(false)
         } catch (error) {
             console.error(error)
