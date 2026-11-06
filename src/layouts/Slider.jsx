@@ -8,7 +8,7 @@ import { useApiData } from '../context/ApiData';
 import "../styles/slider.css"
 
 function Slider() {
-    const { backdropsSlider, trending } = useApiData();
+    const { backdropsSlider, trending = [] } = useApiData();
 
     return (
         <div className='slider'>
