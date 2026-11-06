@@ -21,6 +21,9 @@ export function ApiRequestProvider({ children }) {
     const [loadingGetSeason, setLoadingGetSeason] = useState(false)
     const [loadingPagination, setLoadingPagination] = useState(false)
     const [similarMoviesSeries, setSimilarMoviesSeries] = useState([])
+    
+    const movieUrl = import.meta.env.VITE_TMDB_URL_MOVIE;
+
 
 
     const options_header = {
@@ -31,19 +34,10 @@ export function ApiRequestProvider({ children }) {
         }
     }
 
-    const getBackdropsSlider = async () => {
-        try {
-            // setLoading(true)
-            // const req = await fetch('../../data/movies_data.json')
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
     const getApiTMDBMovies = async (page) => {
         try {
             setLoadingPagination(true)
-            const req = await fetch(`https://api.themoviedb.org/3/discover/movie?language=en-US&page=${page}`, options_header)
+            const req = await fetch(`${movieUrl}/discover/movie?language=en-US&page=${page}`, options_header)
             const res = await req.json()
             setMoviesData(res)
             setLoadingPagination(false)
@@ -55,7 +49,7 @@ export function ApiRequestProvider({ children }) {
     const getApiTMDBTVshow = async (page) => {
         try {
             setLoadingPagination(true)
-            const req = await fetch(`https://api.themoviedb.org/3/discover/tv?language=en-US&page=${page}`, options_header)
+            const req = await fetch(`${movieUrl}/discover/tv?language=en-US&page=${page}`, options_header)
             const res = await req.json()
             setSeriesData(res)
             setLoadingPagination(false)
@@ -67,7 +61,7 @@ export function ApiRequestProvider({ children }) {
     const getAllTrending = async () => {
         try {
             setLoading(true)
-            const req = await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options_header)
+            const req = await fetch(`${movieUrl}/trending/all/day?language=en-US`, options_header)
             const res = await req.json()
             setTrending(res?.results.slice(0, 6))
             setLoading(false)
@@ -79,7 +73,7 @@ export function ApiRequestProvider({ children }) {
     const getApiTMDBSearch = async (name) => {
         try {
             // setLoading(true)
-            const req = await fetch(`https://api.themoviedb.org/3/search/multi?query=${name}`, options_header)
+            const req = await fetch(`${movieUrl}/search/multi?query=${name}`, options_header)
             const res = await req.json()
             setDataSearch(res)
             // setLoading(false)
@@ -91,7 +85,7 @@ export function ApiRequestProvider({ children }) {
     const findMovieTv = async ({ id, media_type }) => {
         try {
             setLoadingProfile(true)
-            const req = await fetch(`https://api.themoviedb.org/3/${media_type}/${id}?language=es-ES`, options_header)
+            const req = await fetch(`${movieUrl}/${media_type}/${id}?language=es-ES`, options_header)
             const res = await req.json()
             setMovieTV(res)
             setLoadingProfile(false)
@@ -103,7 +97,7 @@ export function ApiRequestProvider({ children }) {
     const getSeasonTv = async ({tv_id, season_number}) => {
         try {
             setLoadingGetSeason(true)
-            const req = await fetch(`https://api.themoviedb.org/3/tv/${tv_id}/season/${season_number}?language=es-ES`, options_header)
+            const req = await fetch(`${movieUrl}/tv/${tv_id}/season/${season_number}?language=es-ES`, options_header)
             const res = await req.json()
             
             setSeason(res)
@@ -116,7 +110,7 @@ export function ApiRequestProvider({ children }) {
     const getSimilarMoviesSeriesAPI = async ({ id, media_type }) => {
         try {
             // setLoadingProfile(true)
-            const req = await fetch(`https://api.themoviedb.org/3/${media_type}/${id}/recommendations?language=es-ES`, options_header)
+            const req = await fetch(`${movieUrl}/${media_type}/${id}/recommendations?language=es-ES`, options_header)
             const res = await req.json()
             setSimilarMoviesSeries(res?.results.slice(0, 10))
             // setLoadingProfile(false)
